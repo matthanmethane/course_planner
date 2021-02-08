@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<body>
+    <h1>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            Course code: 
+            {{ form.courseCode1 }}
+            Course code:
+            {{ form.courseCode2 }}
+            <br>
+            Course code:
+            {{ form.courseCode3 }}
+            Course code: 
+            {{ form.courseCode4 }}
+            <br>
+            Course code:
+            {{ form.courseCode5 }}
+            Course code:
+            {{ form.courseCode6 }}
+            <br>
+            Course code: 
+            {{ form.courseCode7 }}
+            Course code:
+            {{ form.courseCode8 }}
+            <br>
+            Course code:
+            {{ form.courseCode9 }}
+            <br>
+            {{ form.submit}}
+            <input type="button" onClick= location.reload(); value="Reset"/>
+        </form>
+        
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </h1>
+
+    {{table|safe}}
+</body>
+{% endblock %}
+
+

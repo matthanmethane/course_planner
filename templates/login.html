@@ -1,0 +1,13 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+    <h1>Log In Page</h1>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <p>Username</p>
+        {{ form.username }}
+        <br>
+        <p>Password</p>
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+{% endblock %}  

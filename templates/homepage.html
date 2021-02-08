@@ -1,0 +1,12 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+<h1>Welcome to the All-In-One University Page</h1>
+<a href="{{ url_for('login') }}">Login </a> <br>
+<a href="{{ url_for('planner') }}">Planner </a> <br>
+<a href="{{ url_for('gpa') }}">GPA Calculator </a> <br>
+<a href="{{ url_for('partner') }}">Find Partner </a> <br>
+ 
+
+
+{% endblock %}
