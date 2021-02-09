@@ -1,4 +1,5 @@
 from course import Course
+
 class CourseIndex:
     def __init__(self,code,index):
         self.code = code

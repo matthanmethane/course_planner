@@ -39,6 +39,7 @@ def get_course_schedule(link):
     course_index = ''
     course_list = []
     for rows in table[1][1:]:
+        print(rows)
         if rows[0] != '':
             course_index = rows[0]
         course_type = rows[1]
@@ -124,13 +125,13 @@ def course_planner(courseList,calendarSpace=CalendarSpace(),resultList=None):
                     calendar_modify(courseIndex,calendarSpace,'remove')
     return resultList
     
-#course1_list = get_course_schedule("CZ3006")
-#course2_list = get_course_schedule("CZ3002")
-#course3_list = get_course_schedule("CZ4041")
-#course4_list = get_course_schedule("CZ4046")
+course1_list = get_course_schedule("CZ3006")
+course2_list = get_course_schedule("CZ3002")
+course3_list = get_course_schedule("CZ4041")
+course4_list = get_course_schedule("CZ4046")
 
-#c = CalendarSpace()
-#course_planner(c,[course1_list,course2_list,course3_list,course4_list])
+c = CalendarSpace()
+course_planner(c,[course1_list,course2_list,course3_list,course4_list])
 
 
 def ScheduleCtr(list): #Should return [[CalendarSpace]]
