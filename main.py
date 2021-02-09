@@ -9,7 +9,7 @@ from flask.helpers import url_for
 from flask_sqlalchemy.model import Model
 from flask_bootstrap import Bootstrap
 
-from planner_backend.course_request import ScheduleCtr
+from course_request import ScheduleCtr
 
 
 from forms import CourseInputForm, LoginForm

@@ -1,4 +1,3 @@
-from calendarSpace import CalendarSpace
 import requests
 import copy
 from pprint import pprint
@@ -6,6 +5,7 @@ from html_table_parser import HTMLTableParser
 from course import Course
 from course_index import CourseIndex
 from calendarSpace import CalendarSpace
+
 payload = {'acadsem': '2020;2',
     'r_course_yr': '',
     'r_subj_code': '',
@@ -125,13 +125,7 @@ def course_planner(courseList,calendarSpace=CalendarSpace(),resultList=None):
                     calendar_modify(courseIndex,calendarSpace,'remove')
     return resultList
     
-course1_list = get_course_schedule("CZ3006")
-course2_list = get_course_schedule("CZ3002")
-course3_list = get_course_schedule("CZ4041")
-course4_list = get_course_schedule("CZ4046")
 
-c = CalendarSpace()
-course_planner(c,[course1_list,course2_list,course3_list,course4_list])
 
 
 def ScheduleCtr(list): #Should return [[CalendarSpace]]
