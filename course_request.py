@@ -5,7 +5,7 @@ from html_table_parser import HTMLTableParser
 from course import Course
 from course_index import CourseIndex
 from calendarSpace import CalendarSpace
-from exam_request import table_response as exam_tb_response
+from exam_request import exam_crash_bool
 
 payload = {'acadsem': '2020;2',
     'r_course_yr': '',
@@ -127,19 +127,17 @@ def course_planner(courseList,calendarSpace=CalendarSpace(),resultList=None):
                     calendar_modify(courseIndex,calendarSpace,'remove')
     return resultList
     
-def exam_crash_bool(courseList):
-    flag = False
-    
-    return flag
-
 
 def ScheduleCtr(list): #Should return [[CalendarSpace]]
     courseScheduleList = []
     if len(list) < 1:
         return 
     else:
-        for course in list:
-            courseScheduleList.append(get_course_schedule(course))
-        
-        resultList = course_planner(courseScheduleList) 
-        return resultList
+        if(exam_crash_bool(list)):
+            return exam_crash_bool(list)
+        else:
+            for course in list:
+                courseScheduleList.append(get_course_schedule(course))
+            
+            resultList = course_planner(courseScheduleList) 
+            return resultList

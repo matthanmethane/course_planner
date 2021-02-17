@@ -57,7 +57,9 @@ def planner():
                         codeList.append(value)
                 cl = ScheduleCtr(codeList)
                 htmlFile = ''
-                if cl == []:
+                if cl[-1]=='exam_crash':
+                    htmlFile = f"<h1>Exam crash betwen {cl[0][0]} and {cl[0][1]}</h1>"
+                elif cl == []:
                     htmlFile = '<h1> No match </h1>'
                 else:
                     for idx,cs in enumerate(cl):

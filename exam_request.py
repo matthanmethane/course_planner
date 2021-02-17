@@ -1,6 +1,7 @@
 import requests
 import copy
 from html_table_parser import HTMLTableParser
+from collections import defaultdict
 
 payload = {
     'p_exam_dt': '',
@@ -38,6 +39,28 @@ def table_response(course_code = ""):
     table = parser.tables
     return(table[1][1])
 
-print(table_response("CZ3002"))
-# 0Date 1Day 2Time 3CourseCode 4CourseName
+def exam_crash_bool(courseList):
+    exam_date_list = {}
+    rev_exam_date_list = {}
+    for course in courseList:
+        exam_date_response = table_response(course)
+        exam_date_str = exam_date_response[6]+ exam_date_response[7]+ exam_date_response[8]
+        exam_date_list[exam_date_response[9]] = exam_date_str
+    rev_exam_date_list = invert_dict(exam_date_list)
+    print(rev_exam_date_list)
+    crash_list = [values for key, values in rev_exam_date_list.items() if len(values) > 1]
+    if(crash_list):
+        crash_list.append("exam_crash")
+        return crash_list
+    else:
+        return False
+        
+def invert_dict(d):
+    d_inv = defaultdict(list)
+    for k, v in d.items():
+        d_inv[v].append(k)
+    return d_inv
 
+#print(table_response("CZ3002"))
+# 0Date 1Day 2Time 3CourseCode 4CourseName
+#print(exam_crash_bool(["AAB20D","AC1103"]))
