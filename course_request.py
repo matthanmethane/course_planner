@@ -5,6 +5,7 @@ from html_table_parser import HTMLTableParser
 from course import Course
 from course_index import CourseIndex
 from calendarSpace import CalendarSpace
+from exam_request import table_response as exam_tb_response
 
 payload = {'acadsem': '2020;2',
     'r_course_yr': '',
@@ -27,6 +28,7 @@ def request_course_name(link):
     payload_cp = payload
     payload_cp['r_subj_code']=link
     table = table_response(payload_cp)  
+    
     for i in range(0,len(table),2):
         course_code = table[i][0][0]
         course_title = table[i][0][1]
@@ -39,7 +41,7 @@ def get_course_schedule(link):
     course_index = ''
     course_list = []
     for rows in table[1][1:]:
-        print(rows)
+        
         if rows[0] != '':
             course_index = rows[0]
         course_type = rows[1]
@@ -125,7 +127,10 @@ def course_planner(courseList,calendarSpace=CalendarSpace(),resultList=None):
                     calendar_modify(courseIndex,calendarSpace,'remove')
     return resultList
     
-
+def exam_crash_bool(courseList):
+    flag = False
+    
+    return flag
 
 
 def ScheduleCtr(list): #Should return [[CalendarSpace]]
