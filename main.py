@@ -11,7 +11,6 @@ from flask_bootstrap import Bootstrap
 
 from course_request import ScheduleCtr
 
-
 from forms import CourseInputForm, LoginForm
 
 app = Flask(__name__)
