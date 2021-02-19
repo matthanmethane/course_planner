@@ -54,6 +54,13 @@ def exam_crash_bool(courseList):
         return crash_list
     else:
         return False
+
+def exam_list_generator(courseList):
+    exam_dict = {}
+    for course in courseList:
+        exam_info = table_response(course)
+        exam_dict[course] = exam_info
+    return exam_dict
         
 def invert_dict(d):
     d_inv = defaultdict(list)
