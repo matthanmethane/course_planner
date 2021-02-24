@@ -68,6 +68,8 @@ body {font-size:16px;}
 
     <p>Please enter your NTU email and password for registration.</p>
     <br>
+    <div class="w3-light-grey" style=" width: 40%; position: absolute; padding-left: 2%">
+      <br>
       {% block content %}
       <form action="" method="post">
         {{ form.csrf_token }}
@@ -81,8 +83,11 @@ body {font-size:16px;}
         </div>
         <br>
         {{ form.submit }}
+        <br>
+        <br>
       </form>
       {% endblock %}
+    </div>
   </div>
 
 <!-- End page content -->
