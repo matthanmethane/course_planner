@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <title>W3.CSS Template</title>
@@ -23,10 +21,11 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="{{ url_for('homepage') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
-    <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
-    <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
-    <a href="#logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
+    <a href="{{ url_for('register') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a>
+
+
+
   </div>
 </nav>
 
@@ -42,97 +41,49 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-  <!-- Home -->
 
 
-
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="Planner">
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>Planner</b></h1>
-
-  </div>
-
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
     </div>
-
-
-
-{% block content %}
-        <form action="" method="POST">
-            {{ form.csrf_token }}
-
-            Course code:
-            {{ form.courseCode1 }}
-
-            Course code:
-            {{ form.courseCode2 }}
-
-            Course code:
-            {{ form.courseCode3 }}
-            <br>
-            <br>
-            Course code:
-            {{ form.courseCode4 }}
-
-            Course code:
-            {{ form.courseCode5 }}
-
-            Course code:
-            {{ form.courseCode6 }}
-            <br>
-            <br>
-            Course code:
-            {{ form.courseCode7 }}
-
-            Course code:
-            {{ form.courseCode8 }}
-
-            Course code:
-            {{ form.courseCode9 }}
-            <br>
-            <br>
-            {{ form.submit }}
-            <input type="button" onClick= location.reload(); value="Reset"/>
-        </form>
-
-        {% for message in get_flashed_messages() %}
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-        </div>
-        {% endfor %}
-
-        <h1 class="w3-xxxlarge w3-text-red"><b>Possible Schedules:</b></h1>
-
-        {{table|safe}}
-{% endblock %}
-
-
   </div>
 
 
 
-  <!-- Services -->
-
-
-  <!-- Designers -->
-
-
-  <!-- The Team -->
-
-
-  <!-- Packages / Pricing Tables -->
 
 
 
 
-  <!-- Contact -->
 
+
+  <!--FORM HERE-->
+
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <br>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Register</b></h1>
+
+    <p>Please enter your NTU email and password for registration.</p>
+    <br>
+      {% block content %}
+      <form action="" method="post">
+        {{ form.csrf_token }}
+        <div class="w3-section">
+          <label>Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+          {{ form.username }}
+        </div>
+        <div class="w3-section">
+          <label>Password:</label>
+          {{ form.password }}
+        </div>
+        <br>
+        {{ form.submit }}
+      </form>
+      {% endblock %}
+  </div>
 
 <!-- End page content -->
 </div>
@@ -162,5 +113,3 @@ function onClick(element) {
 
 </body>
 </html>
-
-

@@ -40,7 +40,7 @@ admin.add_view(AdminModelView(User,db.session))
 
 @app.route('/', methods=["GET", "POST"])
 def homepage():
-    return render_template("homepage.html")
+    return render_template("home.html")
 
 
 @app.route('/planner', methods=["GET", "POST"])
@@ -78,7 +78,12 @@ def planner():
 @app.route('/login', methods=["GET", "POST"])
 def login():
     form = LoginForm()
-    return render_template("login.html",form = form)
+    return render_template("newlogin.html",form = form)
+
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    form = LoginForm()
+    return render_template("register.html",form = form)
 
 @app.route('/gpa', methods=["GET", "POST"])
 def gpa():
