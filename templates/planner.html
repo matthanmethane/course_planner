@@ -58,13 +58,14 @@ body {font-size:16px;}
 
 
 
-    <div class="w3-light-grey">
+    <div class="w3-light-grey" style="padding-left:7% ">
         <br>
         {% block content %}
         <form action="" method="POST">
+
             {{ form.csrf_token }}
 
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
+            Course code:
             {{ form.courseCode1 }}
 
             Course code:
@@ -74,7 +75,7 @@ body {font-size:16px;}
             {{ form.courseCode3 }}
             <br>
             <br>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
+            Course code:
             {{ form.courseCode4 }}
 
             Course code:
@@ -84,7 +85,7 @@ body {font-size:16px;}
             {{ form.courseCode6 }}
             <br>
             <br>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
+            Course code:
             {{ form.courseCode7 }}
 
             Course code:
@@ -94,7 +95,6 @@ body {font-size:16px;}
             {{ form.courseCode9 }}
             <br>
             <br>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             {{ form.submit }}
             <input type="button" onClick= location.reload(); value="Reset"/>
             <br>
@@ -111,7 +111,7 @@ body {font-size:16px;}
         <h1 class="w3-xxxlarge w3-text-red"><b>Possible Schedules:</b></h1>
 
 
-            <div class="w3-light-grey">
+            <div class="w3-light-grey" style="padding-left:2% ">
 
 
                     {{table|safe}}
