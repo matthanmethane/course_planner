@@ -55,18 +55,16 @@ body {font-size:16px;}
   </div>
 
   <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-
-    </div>
 
 
 
-{% block content %}
+    <div class="w3-light-grey">
+        <br>
+        {% block content %}
         <form action="" method="POST">
             {{ form.csrf_token }}
 
-            Course code:
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
             {{ form.courseCode1 }}
 
             Course code:
@@ -76,7 +74,7 @@ body {font-size:16px;}
             {{ form.courseCode3 }}
             <br>
             <br>
-            Course code:
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
             {{ form.courseCode4 }}
 
             Course code:
@@ -86,7 +84,7 @@ body {font-size:16px;}
             {{ form.courseCode6 }}
             <br>
             <br>
-            Course code:
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse code:
             {{ form.courseCode7 }}
 
             Course code:
@@ -96,10 +94,13 @@ body {font-size:16px;}
             {{ form.courseCode9 }}
             <br>
             <br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             {{ form.submit }}
             <input type="button" onClick= location.reload(); value="Reset"/>
+            <br>
+            <br>
         </form>
-
+    </div>
         {% for message in get_flashed_messages() %}
         <div class="alert alert-warning">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -109,7 +110,14 @@ body {font-size:16px;}
 
         <h1 class="w3-xxxlarge w3-text-red"><b>Possible Schedules:</b></h1>
 
-        {{table|safe}}
+
+            <div class="w3-light-grey">
+
+
+                    {{table|safe}}
+
+            </div>
+
 {% endblock %}
 
 
