@@ -10,8 +10,10 @@ from flask_sqlalchemy.model import Model
 from flask_bootstrap import Bootstrap
 
 from course_request import ScheduleCtr
+from gpa import convertgrade
 
 from forms import CourseInputForm, LoginForm
+from gpa import GpaCalculatorForm
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -82,7 +84,55 @@ def login():
 
 @app.route('/gpa', methods=["GET", "POST"])
 def gpa():
-    return render_template("gpa.html")
+    form = GpaCalculatorForm()   
+    if request.method == "POST":
+        if form.validate_on_submit():
+            try:
+                #declare all the values
+                grade = []
+                credit = []
+                semestergrade = 0
+                currentcredit = 0
+                currentgrade = 0
+                semestergpa = 0
+                cumulativegpa = 0
+                
+                #to retrieve all the form data from user input
+                for key,value in form.data.items():
+                    if(key != 'cgpa' and key != 'creditearned'):
+                        if ('grade' in key):
+                            if(isinstance(value,str) and value != '' and len(value)==1):
+                                grade.append(convertgrade(value))
+                            else:
+                                grade.append(0)
+                        if('credit' in key):
+                            if(value != '' and value != None):
+                                credit.append(value)
+                            else:
+                                credit.append(0)
+                #to get current cumulative gpa and credit earned
+                cgpa = request.form.get('cgpa')
+                creditearned = request.form.get('creditearned')
+                #to calculate semester grade and current credit
+                for x in range(len(grade)):
+                    if(grade[x] != 0): #to prevent calculating wrong invalid grade
+                        semestergrade+=grade[x] * credit[x]
+                        currentcredit+=credit[x]
+                #to get current grade
+                currentgrade = int(cgpa) * int(creditearned)
+                #to get the new semester gpa and new cumulative gpa
+                semestergpa = semestergrade / currentcredit
+                cumulativegpa = (semestergrade + currentgrade) / (int(creditearned) + currentcredit)
+               # print(cumulativegpa)
+                #to print the gpa 
+                return render_template("gparesult.html", sgpa = semestergpa, cgpa = cumulativegpa) 
+            except:
+                redirect(url_for("gpa"))
+        else:
+            flash('Please check your input and only enter valid data')
+    return render_template("gpa.html", form = form)
+
+
 
 @app.route('/partner', methods=["GET", "POST"])
 def partner():

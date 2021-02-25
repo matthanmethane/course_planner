@@ -1,1 +1,65 @@
 <h1>GPA Calculator</h1>
+
+{% block content %}
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            Cumulative GPA:
+            {{ form.cgpa }}
+            Total credits earned:
+            {{ form.creditearned }}
+            <br>
+            <br>
+            Course grade:
+            {{ form.grade1 }}
+            Course credit:
+            {{ form.credit1 }}
+            <br>
+            Course grade:
+            {{ form.grade2 }}
+            Course credit:
+            {{ form.credit2 }}
+            <br>
+            Course grade:
+            {{ form.grade3 }}
+            Course credit:
+            {{ form.credit3 }}
+            <br>
+            Course grade:
+            {{ form.grade4 }}
+            Course credit:
+            {{ form.credit4 }}
+            <br>
+            Course grade:
+            {{ form.grade5 }}
+            Course credit:
+            {{ form.credit5 }}
+            <br>
+            Course grade:
+            {{ form.grade6 }}
+            Course credit:
+            {{ form.credit6 }}
+            <br>
+            Course grade:
+            {{ form.grade7 }}
+            Course credit:
+            {{ form.credit7 }}
+            <br>
+            Course grade:
+            {{ form.grade8 }}
+            Course credit:
+            {{ form.credit8 }}
+            <br>
+            <br>
+            {{ form.submit}}
+            <input type="button" onClick= location.reload(); value="Reset"/>
+        </form>
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {{table|safe}}
+{% endblock %}
