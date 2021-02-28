@@ -9,29 +9,29 @@ class GpaCalculatorForm(FlaskForm):
    cgpa = StringField('Enter cumulative GPA', [validators.Length(min=1,max=5),validators.Optional()])
    creditearned = StringField('Enter total credits earned', [validators.Length(min=1,max=2),validators.Optional()])
 
-   grade1 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade1 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit1 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade2 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade2 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit2 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade3 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade3 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit3 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade4 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade4 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit4 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
    
-   grade5 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade5 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit5 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade6 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade6 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit6 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade7 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
+   grade7 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
    credit7 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
-   grade8 = StringField('Enter course grade', [validators.Length(max=1),validators.Optional()])
-   credit8 = IntegerField('Enter course cocreditde', [validators.NumberRange(min=1,max=3),validators.Optional()])
+   grade8 = StringField('Enter course grade', [validators.Length(min=1,max=2),validators.Optional()])
+   credit8 = IntegerField('Enter course credit', [validators.NumberRange(min=1,max=3),validators.Optional()])
 
    submit = SubmitField('Submit')
 
@@ -51,8 +51,10 @@ def convertgrade(i):
        'b-': 3,
        'C+': 2.5,
        'c+': 2.5,
-       'C': 1.5,
-       'c': 1.5,
+       'C': 2,
+       'c': 2,
+       'D+': 1.5,
+       'd+': 1.5,
        'D': 1,
        'd': 1,
        'F': 0,

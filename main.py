@@ -14,6 +14,7 @@ from gpa import convertgrade
 
 from forms import CourseInputForm, LoginForm
 from gpa import GpaCalculatorForm
+from decimal import Decimal
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -101,10 +102,10 @@ def gpa():
                 for key,value in form.data.items():
                     if(key != 'cgpa' and key != 'creditearned'):
                         if ('grade' in key):
-                            if(isinstance(value,str) and value != '' and len(value)==1):
+                            if(isinstance(value,str) and value != '' and len(value)<=2):
                                 grade.append(convertgrade(value))
                             else:
-                                grade.append(0)
+                                grade.append(0) 
                         if('credit' in key):
                             if(value != '' and value != None):
                                 credit.append(value)
@@ -119,11 +120,11 @@ def gpa():
                         semestergrade+=grade[x] * credit[x]
                         currentcredit+=credit[x]
                 #to get current grade
-                currentgrade = int(cgpa) * int(creditearned)
+                currentgrade = Decimal(cgpa) * int(creditearned)
+                
                 #to get the new semester gpa and new cumulative gpa
                 semestergpa = semestergrade / currentcredit
-                cumulativegpa = (semestergrade + currentgrade) / (int(creditearned) + currentcredit)
-               # print(cumulativegpa)
+                cumulativegpa = (Decimal(semestergrade) + currentgrade) / (int(creditearned) + currentcredit)
                 #to print the gpa 
                 return render_template("gparesult.html", sgpa = semestergpa, cgpa = cumulativegpa) 
             except:
