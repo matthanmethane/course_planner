@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <title>W3.CSS Template</title>
@@ -21,8 +23,6 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="{{ url_for('homepage') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
-    <a href="{{ url_for('register') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a>
     <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
     <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
     <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
@@ -44,68 +44,104 @@ body {font-size:16px;}
 
   <!-- Home -->
 
-  <div class="w3-container" id="Home" style="margin-top:100px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Home</b></h1>
 
-    <p>welcome to our blah blah blah. add text if u want or nah </p>
-    <p>more blah blah blah </p>
-    <h1>Services:</h1>
-
-
-
-    <div class="w3-row-padding w3-grayscale" >
-      <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-
-          <div class="w3-container">
-            <h3>Plan your Timetable</h3>
-            <p class="w3-opacity">blah</p>
-            <p>blah blah blah</p>
-          </div>
-        </div>
-      </div>
-      <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-
-          <div class="w3-container">
-            <h3>Calculate your GPA</h3>
-            <p class="w3-opacity">extreme blah</p>
-            <p>fking blah</p>
-          </div>
-        </div>
-      </div>
-      <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-
-          <div class="w3-container">
-            <h3>Find your Coursemates</h3>
-            <p class="w3-opacity">i want to end myself</p>
-            <p>let this be over ald</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-    <br>
-
-
-  </div>
 
 
   <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="Planner">
 
+    <h1 class="w3-xxxlarge w3-text-red"><b>GPA Calculator</b></h1>
+
+  </div>
 
   <!-- Photo grid (modal) -->
+  <div class="w3-light-grey" style="padding-left:17% ">
+      <br>
+      {% block content %}
+            <form action="" method="POST">
+                {{ form.csrf_token }}
+                Cumulative GPA:
+                {{ form.cgpa }}
+                Total credits earned:
+                {{ form.creditearned }}
+                <br>
+                <br>
+  </div>
+    <br>
+    <div class="w3-light-grey" style="padding-left:20.5% ">
+        <br>
+                Course grade:
+                {{ form.grade1 }}
+                Course credit:
+                {{ form.credit1 }}
+                <br>
+                Course grade:
+                {{ form.grade2 }}
+                Course credit:
+                {{ form.credit2 }}
+                <br>
+                Course grade:
+                {{ form.grade3 }}
+                Course credit:
+                {{ form.credit3 }}
+                <br>
+                Course grade:
+                {{ form.grade4 }}
+                Course credit:
+                {{ form.credit4 }}
+                <br>
+                Course grade:
+                {{ form.grade5 }}
+                Course credit:
+                {{ form.credit5 }}
+                <br>
+                Course grade:
+                {{ form.grade6 }}
+                Course credit:
+                {{ form.credit6 }}
+                <br>
+                Course grade:
+                {{ form.grade7 }}
+                Course credit:
+                {{ form.credit7 }}
+                <br>
+                Course grade:
+                {{ form.grade8 }}
+                Course credit:
+                {{ form.credit8 }}
+                <br>
+                <br>
+                {{ form.submit}}
+                <input type="button" onClick= location.reload(); value="Reset"/>
+            </form>
+
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+
+            {{table|safe}}
+
+    {% endblock %}
+    <br><br>
+  </div>
 
 
-  <!-- Modal for full size images on click-->
+
+
+
+
 
 
   <!-- Services -->
 
 
   <!-- Designers -->
+
+
+  <!-- The Team -->
 
 
   <!-- Packages / Pricing Tables -->
@@ -117,7 +153,7 @@ body {font-size:16px;}
 
 
 <!-- End page content -->
-</div>
+
 
 <!-- W3.CSS Container -->
 
@@ -144,3 +180,5 @@ function onClick(element) {
 
 </body>
 </html>
+
+

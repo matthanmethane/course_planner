@@ -131,12 +131,12 @@ def gpa():
                 semestergpa = semestergrade / currentcredit
                 cumulativegpa = (Decimal(semestergrade) + currentgrade) / (int(creditearned) + currentcredit)
                 #to print the gpa 
-                return render_template("gparesult.html", sgpa = semestergpa, cgpa = cumulativegpa) 
+                return render_template("gparesult_new.html", sgpa = semestergpa, cgpa = cumulativegpa)
             except:
                 redirect(url_for("gpa"))
         else:
             flash('Please check your input and only enter valid data')
-    return render_template("gpa.html", form = form)
+    return render_template("gpa_new.html", form = form)
 
 
 
