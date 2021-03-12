@@ -93,14 +93,18 @@ body {font-size:16px;}
 
             Course code:
             {{ form.courseCode9 }}
+            
             <br>
             <br>
 
             {{ form.submit }}
             <input type="button" onClick= location.reload(); value="Reset"/>
+
+            
+
             <br>
             <br>
-        </form>
+        
     </div>
         {% for message in get_flashed_messages() %}
         <div class="alert alert-warning">
@@ -110,15 +114,14 @@ body {font-size:16px;}
         {% endfor %}
 
         <h1 class="w3-xxxlarge w3-text-red"><b>Possible Schedules:</b></h1>
-
-
             <div class="w3-light-grey" style="padding-left:2% ">
 
 
                     {{table|safe}}
+                    <button name='cnt' value="{{ cnter+1 }}" onClick = "document.getElementByName('cnt').value ++;">{{ cnter + 1 }}</button>
 
             </div>
-
+          </form>       
 {% endblock %}
 
 
