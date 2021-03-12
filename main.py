@@ -152,8 +152,8 @@ def planner():
                     htmlFile = '<h1> No match </h1>'
                 else:
                     for idx,cs in enumerate(cl):
-                    htmlFile = htmlFile + cs.calendarToHtml()
-                    htmlFile = htmlFile + f"<br>{idx+1}\n"
+                        htmlFile = htmlFile + cs.calendarToHtml()
+                        htmlFile = htmlFile + f"<br>{idx+1}\n"
                 #else:
                  #   cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
                   #  print(cl_html)
