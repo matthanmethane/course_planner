@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>CZ3002</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ url_for('static', filename= 'main.css') }}">
@@ -64,14 +64,18 @@ body {font-size:16px;}
   <!-- Contact find w3-text-red to change the big text colour-->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <br>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
 
-    <p>Enter your Email address and password to login. Please register if you do not have an account.</p>
     <br>
 
     <div class="w3-light-grey" style=" width: 40%; position: absolute; padding-left: 2%">
       <br>
             {% block content %}
+            <br>
+            <br>
+            <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
+
+            <p>Enter your NTU username and password to login. Please register if you do not have an account.</p>
+
             <form action="" method="post">
               {{ form.csrf_token }}
               <div class="w3-section">
@@ -87,7 +91,7 @@ body {font-size:16px;}
                 {{ form.remember }}
               </div>
               <br>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+              <button class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" type="submit">Login</button>
               {{ form.submit }}
               <br>
               <br>

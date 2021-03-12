@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>CZ3002</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ url_for('static', filename= 'main.css') }}">
@@ -22,11 +22,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>All-in-1 School Starter Pack for NTU Students</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="{{ url_for('homepage') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="{{ url_for('homepage2') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
     <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
     <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
-    <a href="#logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
   </div>
 </nav>
 
@@ -95,6 +95,7 @@ body {font-size:16px;}
             {{ form.courseCode9 }}
             <br>
             <br>
+
             {{ form.submit }}
             <input type="button" onClick= location.reload(); value="Reset"/>
             <br>
