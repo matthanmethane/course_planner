@@ -45,7 +45,7 @@ body {font-size:16px;}
   <div class="w3-container" id="Home" style="margin-top:100px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Home</b></h1>
 
-
+    <br>
     <h1>Services:</h1>
 
     <br>
@@ -58,6 +58,8 @@ body {font-size:16px;}
           <div class="w3-container">
             <h3>Plan your Timetable</h3>
             <p class="w3-opacity">..to help you with course registration</p>
+            <a href="{{ url_for('planner') }}" onclick="w3_close()" style="padding-left:30%" class="w3-bar-item w3-button w3-hover-white">Go to Planner&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+
 
           </div>
         </div>
@@ -68,6 +70,8 @@ body {font-size:16px;}
           <div class="w3-container">
             <h3>Calculate your GPA</h3>
             <p class="w3-opacity">..to understand where you stand</p>
+            <a href="{{ url_for('gpa') }}" onclick="w3_close()" style="padding-left:22%" class="w3-bar-item w3-button w3-hover-white">Go to GPA Calculator&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+
 
           </div>
         </div>
@@ -78,13 +82,13 @@ body {font-size:16px;}
           <div class="w3-container">
             <h3>Find your Coursemates</h3>
             <p class="w3-opacity">..to make new friends </p>
+            <a href="{{ url_for('partner') }}" onclick="w3_close()" style="padding-left:17%" class="w3-bar-item w3-button w3-hover-white">Go to Coursemate Finder&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+
 
           </div>
         </div>
       </div>
     </div>
-    <br>
-    <br>
     <br>
     <br>
     <br>
