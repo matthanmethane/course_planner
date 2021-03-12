@@ -11,7 +11,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, PasswordField, BooleanField
+from wtforms import StringField, PasswordField, BooleanField, IntegerField
 from wtforms.validators import InputRequired, Email, Length
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -62,8 +62,6 @@ class RegisterForm(FlaskForm):
     # email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-
-
 # @app.route('/')
 # def index():
 #     return render_template('index.html')
@@ -137,6 +135,7 @@ def homepage2():
 def planner():
     form = CourseInputForm()
     htmlFile = ''
+    cnter = -1
     if request.method == "POST":
         if form.validate_on_submit():
             try:
@@ -150,21 +149,36 @@ def planner():
                     htmlFile = f"<h1>Exam crash betwen {cl[0][0]} and {cl[0][1]}</h1>"
                 elif cl == []:
                     htmlFile = '<h1> No match </h1>'
-                # else:
-                # for idx,cs in enumerate(cl):
-                # htmlFile = htmlFile + cs.calendarToHtml()
-                # htmlFile = htmlFile + f"<br>{idx+1}\n"
                 else:
-                    cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
-                    print(cl_html)
-                    htmlFile = "<h1>Developing..</h1>"
+                    try:
+                        cnter = int(request.form['cnt'])
+                    except:
+                        cnter = 0
+                    htmlFile = cl[cnter].calendarToHtml()[0]
+                    if (int(request.form['save'])):
+                        conn, cursor = create_connection(DBNAME)
+                        save_plan(conn,cursor,"U1772048E",cl[cnter].calendarToHtml()[1],"plan_1")
+                        close_connection(conn)
+                # else:
+                #     for idx,cs in enumerate(cl):
+                #         htmlFile = htmlFile + cs.calendarToHtml()[0]
+                #         htmlFile = htmlFile + f"<br>{idx+1}\n"
+                        
+                # else:
+                #     cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
+                #     print(cl_html)
+                #     htmlFile = "<h1>Developing..</h1>"
                 redirect(url_for("planner"))
             except:
                 redirect(url_for("planner"))
         else:
             flash('Invalid Input')
-    return render_template("planner.html", form=form, table=htmlFile)
+    return render_template("planner.html", form=form, table=htmlFile, cnter = cnter)
 
+@app.route('/save',methods = ['GET','POST'])
+def save():
+    return("<h1>Hi</h1>")
+    
 
 # @app.route('/login', methods=["GET", "POST"])
 # def login():
