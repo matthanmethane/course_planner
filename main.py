@@ -150,14 +150,14 @@ def planner():
                     htmlFile = f"<h1>Exam crash betwen {cl[0][0]} and {cl[0][1]}</h1>"
                 elif cl == []:
                     htmlFile = '<h1> No match </h1>'
-                # else:
-                # for idx,cs in enumerate(cl):
-                # htmlFile = htmlFile + cs.calendarToHtml()
-                # htmlFile = htmlFile + f"<br>{idx+1}\n"
                 else:
-                    cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
-                    print(cl_html)
-                    htmlFile = "<h1>Developing..</h1>"
+                    for idx,cs in enumerate(cl):
+                    htmlFile = htmlFile + cs.calendarToHtml()
+                    htmlFile = htmlFile + f"<br>{idx+1}\n"
+                #else:
+                 #   cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
+                  #  print(cl_html)
+                   # htmlFile = "<h1>Developing..</h1>"
                 redirect(url_for("planner"))
             except:
                 redirect(url_for("planner"))
