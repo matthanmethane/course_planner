@@ -109,9 +109,12 @@ class CalendarSpace:
                 calList.append(calAdd)
             htmlTable.append(calList)
         htmlTableAll = tabulate(htmlTable,htmlHeader,tablefmt='html') + '\n'
+        db_dict= {}
         for courseIndex in self.courseIndexes:
-                htmlTableAll = htmlTableAll + f'<h1>{courseIndex.code}:{courseIndex.index}</h1>'
-        return htmlTableAll  
+            htmlTableAll = htmlTableAll + f'<h1>{courseIndex.code}:{courseIndex.index}</h1>'
+            db_dict[courseIndex.code] = courseIndex.index
+        htmlTableAll = htmlTableAll + "<button name='save' value=0 onclick=\"document.getElementByName('save').value=1\">Save</button>"
+        return htmlTableAll, db_dict
 
     def reset(self):
         self.calendar = [[False for x in range(len(daySlot))]for x in range(len(timeSlot))]
