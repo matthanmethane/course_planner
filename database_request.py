@@ -221,7 +221,7 @@ def test_student_info():
     # If able to save student info
 
     # If able to update student info
-'''
+
 def main():
     db_path = r"ASE_Project.db"
 
@@ -235,3 +235,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''

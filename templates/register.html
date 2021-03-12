@@ -61,7 +61,8 @@ body {font-size:16px;}
 
 
   <!--FORM HERE-->
-
+  {% extends "bootstrap/base.html" %}
+  {% import "bootstrap/wtf.html" as wtf %}
   <div class="w3-container" id="services" style="margin-top:75px">
     <br>
     <h1 class="w3-xxxlarge w3-text-red"><b>Register</b></h1>
@@ -73,15 +74,14 @@ body {font-size:16px;}
       {% block content %}
       <form action="" method="post">
         {{ form.csrf_token }}
-        <div class="w3-section">
-          <label>Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-          {{ form.username }}
+          {{ wtf.form_field(form.username) }}
         </div>
         <div class="w3-section">
-          <label>Password:</label>
-          {{ form.password }}
+
+          {{ wtf.form_field(form.password) }}
         </div>
         <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         {{ form.submit }}
         <br>
         <br>

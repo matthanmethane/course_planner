@@ -59,7 +59,8 @@ body {font-size:16px;}
 
 
 <!-- FORM HERE-->
-
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
   <!-- Contact find w3-text-red to change the big text colour-->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <br>
@@ -74,14 +75,19 @@ body {font-size:16px;}
             <form action="" method="post">
               {{ form.csrf_token }}
               <div class="w3-section">
-                <label>Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-                {{ form.username }}
+                {{ wtf.form_field(form.username) }}
               </div>
               <div class="w3-section">
-                <label>Password:</label>
-                {{ form.password }}
+
+                {{ wtf.form_field(form.password) }}
+              </div>
+
+              <div class="w3-section">
+                <label>Remember:</label>
+                {{ form.remember }}
               </div>
               <br>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
               {{ form.submit }}
               <br>
               <br>

@@ -1,28 +1,34 @@
 from flask import Flask, render_template, redirect, flash
 from flask_admin import Admin
-from flask_login.login_manager import LoginManager
-from flask_sqlalchemy import SQLAlchemy
-from flask_admin.contrib.sqla import ModelView
-from flask_login import UserMixin
+#from flask_login.login_manager import LoginManager
+#from flask_sqlalchemy import SQLAlchemy
+#from flask_admin.contrib.sqla import ModelView
+#from flask_login import UserMixin
 from flask.globals import request
 from flask.helpers import url_for
-from flask_sqlalchemy.model import Model
+#from flask_sqlalchemy.model import Model
 from flask_bootstrap import Bootstrap
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_wtf import FlaskForm 
+
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.validators import InputRequired, Email, Length
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from course_request import ScheduleCtr
-from gpa import convertgrade
-
+from gpa import convertgrade, GpaCalculatorForm
 from forms import CourseInputForm, LoginForm
-from gpa import GpaCalculatorForm
 from decimal import Decimal
+from database_request import *
 
 app = Flask(__name__)
 Bootstrap(app)
+DBNAME = r"ASE_Project.db"
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///account.db'
-
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///account.db'
+'''
 db = SQLAlchemy(app)
 login = LoginManager(app)
 
@@ -32,7 +38,9 @@ def load_user(user_id):
 
 class User(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(20))
+    username = db.Column(db.String(20), unique=True)
+    email = db.Column(db.String(50), unique=True)
+    password = db.Column(db.String(80))
 
 class AdminModelView(ModelView):
     def is_accessible(self):
@@ -40,6 +48,73 @@ class AdminModelView(ModelView):
 
 admin = Admin(app, name='All-In-One University', template_mode='bootstrap3')
 admin.add_view(AdminModelView(User,db.session))
+'''
+
+###############################################################################################
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField('remember me')
+
+class RegisterForm(FlaskForm):
+    #email = StringField('email', validators=[InputRequired(), Email(message='Invalid email'), Length(max=50)])
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+
+
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        conn, cursor = create_connection(DBNAME)
+        matric_id = form.username.data
+        password = form.password.data
+        #hashed_password = generate_password_hash(form.password.data, method='sha256')
+        result_dict = get_credentials(cursor, matric_id)
+        print(result_dict)
+        print(result_dict["password"] + "\n")
+        print(password + "\n")
+        if (check_password_hash(result_dict["password"], form.password.data)):
+            close_connection(conn)
+            return redirect(url_for('planner'))
+        return '<h1>Invalid username or password</h1>' #pop up window
+        #return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
+
+    return render_template('newlogin.html', form=form)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        conn, cursor = create_connection(DBNAME)
+
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
+        matric_id = form.username.data
+        save_credentials(conn, cursor, matric_id, hashed_password)
+
+        close_connection(conn)
+        return redirect(url_for('login'))
+        #return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
+
+    return render_template('register.html', form=form)
+
+# @app.route('/dashboard')
+# @login_required
+# def dashboard():
+#     return render_template('dashboard.html', name=current_user.username)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+    ###############################################################
 
 @app.route('/', methods=["GET", "POST"])
 def homepage():
@@ -78,15 +153,15 @@ def planner():
             flash('Invalid Input')
     return render_template("planner.html", form = form, table = htmlFile)
 
-@app.route('/login', methods=["GET", "POST"])
-def login():
-    form = LoginForm()
-    return render_template("newlogin.html",form = form)
+# @app.route('/login', methods=["GET", "POST"])
+# def login():
+#     form = LoginForm()
+#     return render_template("newlogin.html",form = form)
 
-@app.route('/register', methods=["GET", "POST"])
-def register():
-    form = LoginForm()
-    return render_template("register.html",form = form)
+# @app.route('/register', methods=["GET", "POST"])
+# def register():
+#     form = LoginForm()
+#     return render_template("register.html",form = form)
 
 @app.route('/gpa', methods=["GET", "POST"])
 def gpa():
@@ -138,13 +213,9 @@ def gpa():
             flash('Please check your input and only enter valid data')
     return render_template("gpa_new.html", form = form)
 
-
-
 @app.route('/partner', methods=["GET", "POST"])
 def partner():
     return render_template("partner.html")
-
-
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
