@@ -168,6 +168,7 @@ def planner():
                 #     cl_html = [cs.calendarToHtml() for idx, cs in enumerate(cl)]
                 #     print(cl_html)
                 #     htmlFile = "<h1>Developing..</h1>"
+
                 redirect(url_for("planner"))
             except:
                 redirect(url_for("planner"))
