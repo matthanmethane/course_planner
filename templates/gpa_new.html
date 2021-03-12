@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>CZ3002</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ url_for('static', filename= 'main.css') }}">
@@ -22,11 +22,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>All-in-1 School Starter Pack for NTU Students</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="{{ url_for('homepage') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="{{ url_for('homepage2') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
     <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
     <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
-    <a href="#logout" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
   </div>
 </nav>
 
@@ -68,45 +68,53 @@ body {font-size:16px;}
                 <br>
   </div>
     <br>
-    <div class="w3-light-grey" style="padding-left:20.5% ">
+    <div class="w3-light-grey" style="padding-left:19% ">
         <br>
                 Course grade:
-                {{ form.grade1 }}
+                {{ form.grade1 }} -->
                 Course credit:
                 {{ form.credit1 }}
                 <br>
+                <br>
+
                 Course grade:
-                {{ form.grade2 }}
+                {{ form.grade2 }} -->
                 Course credit:
                 {{ form.credit2 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade3 }}
+                {{ form.grade3 }} -->
                 Course credit:
                 {{ form.credit3 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade4 }}
+                {{ form.grade4 }} -->
                 Course credit:
                 {{ form.credit4 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade5 }}
+                {{ form.grade5 }} -->
                 Course credit:
                 {{ form.credit5 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade6 }}
+                {{ form.grade6 }} -->
                 Course credit:
                 {{ form.credit6 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade7 }}
+                {{ form.grade7 }} -->
                 Course credit:
                 {{ form.credit7 }}
                 <br>
+                <br>
                 Course grade:
-                {{ form.grade8 }}
+                {{ form.grade8 }} -->
                 Course credit:
                 {{ form.credit8 }}
                 <br>
@@ -127,6 +135,7 @@ body {font-size:16px;}
     {% endblock %}
     <br><br>
   </div>
+    <br>
 
 
 

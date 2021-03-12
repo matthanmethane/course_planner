@@ -20,12 +20,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>All-in-1 School Starter Pack for NTU Students</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="{{ url_for('homepage') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
-    <a href="{{ url_for('register') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Register</a>
-
-
-
+    <a href="{{ url_for('homepage2') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
+    <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
+    <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
+    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
   </div>
 </nav>
 
@@ -41,58 +40,79 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
+  <!-- Home -->
+
+  <div class="w3-container" id="Home" style="margin-top:100px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Home</b></h1>
+
+    <p>welcome to our blah blah blah. add text if u want or nah </p>
+    <p>more blah blah blah </p>
+    <h1>Services:</h1>
+
+
+
+    <div class="w3-row-padding w3-grayscale" >
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+
+          <div class="w3-container">
+            <h3>Plan your Timetable</h3>
+            <p class="w3-opacity">blah</p>
+            <p>blah blah blah</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+
+          <div class="w3-container">
+            <h3>Calculate your GPA</h3>
+            <p class="w3-opacity">extreme blah</p>
+            <p>fking blah</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+
+          <div class="w3-container">
+            <h3>Find your Coursemates</h3>
+            <p class="w3-opacity">i want to end myself</p>
+            <p>let this be over ald</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+
+
+  <!-- Header -->
+
+
+  <!-- Photo grid (modal) -->
 
 
   <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
+
+
+  <!-- Services -->
+
+
+  <!-- Designers -->
+
+
+  <!-- Packages / Pricing Tables -->
 
 
 
 
+  <!-- Contact -->
 
-
-
-
-
-  <!--FORM HERE-->
-  {% extends "bootstrap/base.html" %}
-  {% import "bootstrap/wtf.html" as wtf %}
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <br>
-
-    <br>
-    <div class="w3-light-grey" style=" width: 40%; position: absolute; padding-left: 2%">
-      <br>
-      {% block content %}
-      <br>
-      <br>
-      <br>
-      <h1 class="w3-xxxlarge w3-text-red"><b>Register</b></h1>
-      <p>Please enter your NTU username and password for registration.</p>
-      <form action="" method="post">
-        {{ form.csrf_token }}
-        <div class="w3-section">
-          {{ wtf.form_field(form.username) }}
-        </div>
-        <div class="w3-section">
-
-          {{ wtf.form_field(form.password) }}
-        </div>
-        <br>
-        <button class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" type="submit">Register</button>
-        {{ form.submit }}
-        <br>
-        <br>
-      </form>
-      {% endblock %}
-    </div>
-  </div>
 
 <!-- End page content -->
 </div>

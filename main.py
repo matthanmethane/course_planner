@@ -81,11 +81,17 @@ def login():
         print(password + "\n")
         if (check_password_hash(result_dict["password"], form.password.data)):
             close_connection(conn)
-            return redirect(url_for('planner'))
-        return '<h1>Invalid username or password</h1>' #pop up window
+            return redirect(url_for('homepage2'))
+        else:
+            return '<h1>Invalid username or password</h1>' #pop up window
+
         #return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
 
     return render_template('newlogin.html', form=form)
+
+
+
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -119,6 +125,10 @@ def logout():
 @app.route('/', methods=["GET", "POST"])
 def homepage():
     return render_template("home.html")
+
+@app.route('/home', methods=["GET", "POST"])
+def homepage2():
+    return render_template("home2.html")
 
 
 @app.route('/planner', methods=["GET", "POST"])
