@@ -75,7 +75,9 @@ body {font-size:16px;}
             <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
 
             <p>Enter your NTU username and password to login. Please register if you do not have an account.</p>
-
+            {% if errflag %}
+            <h5 style="color: red;" >Incorrect or invalid password. Please re-enter password.</h5>
+            {% endif %}
             <form action="" method="post">
               {{ form.csrf_token }}
               <div class="w3-section">
