@@ -52,11 +52,12 @@ body {font-size:16px;}
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
 
-          <div class="w3-container">
+          <div class="w3-container" style="text-align: center">
             <h3>Login to your account</h3>
             <p class="w3-opacity">..if you are already registered with us</p>
-            <a href="{{ url_for('login') }}" onclick="w3_close()" style="padding-left:36%" class="w3-bar-item w3-button w3-hover-white">Login Now&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-
+            <button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='black'" style="padding: 5px;background-color: #92EFFF; border-radius: 15px; border: none;" ><a style="text-decoration: none; align: center;padding: 20px;" href="{{ url_for('login') }}" onclick="w3_close()"  >Login Now</a></button>
+            <br>
+            <br>
 
           </div>
         </div>
@@ -64,11 +65,12 @@ body {font-size:16px;}
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
 
-          <div class="w3-container">
+          <div class="w3-container" style="text-align: center">
             <h3>Register your account</h3>
             <p class="w3-opacity">..if do not have an account with us</p>
-            <a href="{{ url_for('register') }}" onclick="w3_close()" style="padding-left:34%" class="w3-bar-item w3-button w3-hover-white">Register Now&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-
+            <button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='black'" style="padding: 5px;background-color: #92EFFF; border-radius: 15px; border: none;" ><a style="text-decoration: none; align: center;padding: 20px;" href="{{ url_for('register') }}" onclick="w3_close()"  >Register Now</a></button>
+            <br>
+            <br>
 
           </div>
         </div>
@@ -81,8 +83,7 @@ body {font-size:16px;}
     <br>
     <br>
     <br>
-    <br>
-    <br>
+
 
 
 
