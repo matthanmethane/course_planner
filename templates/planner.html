@@ -125,13 +125,13 @@ body {font-size:16px;}
                     Current Page: {{ cnter + 1 }}
                     <br>
                     <br>
-                    <button name='cnt' value="{{ cnter-1 }}" onClick = "document.getElementByName('cnt').value ++;">Previous</button>
-                    <button name='cnt' value="0" onClick = "document.getElementByName('cnt').value ;">1</button>
-                    <button name='cnt' value="1" onClick = "document.getElementByName('cnt').value ;">2</button>
-                    <button name='cnt' value="2" onClick = "document.getElementByName('cnt').value ;">3</button>
-                    <button name='cnt' value="3" onClick = "document.getElementByName('cnt').value ;">4</button>
-                    <button name='cnt' value="4" onClick = "document.getElementByName('cnt').value ;">5</button>
-                    <button name='cnt' value="{{ cnter+1 }}" onClick = "document.getElementByName('cnt').value ++;">Next</button>
+                    <button id="previous" name='cnt' value="{{ cnter-1 }}" onClick = "document.getElementByName('cnt').value ++;">Previous</button>
+                    <button name='cnt' value="{{ cnter-2 }}" onClick = "document.getElementByName('cnt').value ;">{{ cnter-1 }}</button>
+                    <button name='cnt' value="{{ cnter-1 }}" onClick = "document.getElementByName('cnt').value ;">{{ cnter }}</button>
+                    <button name='cnt' value="{{ cnter }}" onClick = "document.getElementByName('cnt').value ;"><b>{{ cnter+1 }}</b></button>
+                    <button name='cnt' value="{{ cnter+1 }}" onClick = "document.getElementByName('cnt').value ;">{{ cnter+2 }}</button>
+                    <button name='cnt' value="{{ cnter+2 }}" onClick = "document.getElementByName('cnt').value ;">{{ cnter+3 }}</button>
+                    <button id="next" name='cnt' value="{{ cnter+1 }}" onClick = "document.getElementByName('cnt').value ++;">Next</button>
                     <br>
                     <br>
               </div>
@@ -167,7 +167,12 @@ body {font-size:16px;}
 <!-- W3.CSS Container -->
 
 <script>
+
+if(document.getElementById("previous").value < 0){
+  document.getElementById("previous").style.visibility='hidden';
+}
 // Script to open and close sidebar
+if(document.getElementsByName("cnt"))
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
@@ -186,7 +191,6 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 </script>
-
 </body>
 </html>
 
