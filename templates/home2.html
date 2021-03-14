@@ -55,11 +55,12 @@ body {font-size:16px;}
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
 
-          <div class="w3-container">
+          <div class="w3-container" style="text-align: center">
             <h3>Plan your Timetable</h3>
             <p class="w3-opacity">..to help you with course registration</p>
-            <a href="{{ url_for('planner') }}" onclick="w3_close()" style="padding-left:30%" class="w3-bar-item w3-button w3-hover-white">Go to Planner&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-
+            <button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='black'" style="padding: 5px;background-color: #92EFFF; border-radius: 15px; border: none;" ><a style="text-decoration: none; align: center;padding: 20px;" href="{{ url_for('planner') }}" onclick="w3_close()"  >Go to Planner</a></button>
+            <br>
+            <br>
 
           </div>
         </div>
@@ -67,11 +68,12 @@ body {font-size:16px;}
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
 
-          <div class="w3-container">
+          <div class="w3-container" style="text-align: center">
             <h3>Calculate your GPA</h3>
             <p class="w3-opacity">..to understand where you stand</p>
-            <a href="{{ url_for('gpa') }}" onclick="w3_close()" style="padding-left:22%" class="w3-bar-item w3-button w3-hover-white">Go to GPA Calculator&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-
+            <button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='black'" style="padding: 5px;background-color: #92EFFF; border-radius: 15px; border: none;" ><a style="text-decoration: none; align: center;padding: 20px;" href="{{ url_for('gpa') }}" onclick="w3_close()"  >Go to GPA Calculator</a></button>
+            <br>
+            <br>
 
           </div>
         </div>
@@ -79,11 +81,12 @@ body {font-size:16px;}
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
 
-          <div class="w3-container">
+          <div class="w3-container" style="text-align: center">
             <h3>Find your Coursemates</h3>
             <p class="w3-opacity">..to make new friends </p>
-            <a href="{{ url_for('partner') }}" onclick="w3_close()" style="padding-left:17%" class="w3-bar-item w3-button w3-hover-white">Go to Coursemate Finder&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-
+            <button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='black'" style="padding: 5px;background-color: #92EFFF; border-radius: 15px; border: none;" ><a style="text-decoration: none; align: center;padding: 20px;" href="{{ url_for('partner') }}" onclick="w3_close()"  >Go to Coursemate Finder</a></button>
+            <br>
+            <br>
 
           </div>
         </div>
