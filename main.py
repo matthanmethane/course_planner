@@ -155,9 +155,11 @@ def planner():
                     except:
                         cnter = 0
                     htmlFile = cl[cnter].calendarToHtml()[0]
+                    # with open("html_file.txt","w") as f:
+                    #     f.write(htmlFile)
                     if (int(request.form['save'])):
                         conn, cursor = create_connection(DBNAME)
-                        save_plan(conn,cursor,"U1772048E",cl[cnter].calendarToHtml()[1],"plan_1")
+                        save_plan(conn,cursor,"dongwoo",cl[cnter].calendarToHtml()[1],"plan_1")
                         close_connection(conn)
                 # else:
                 #     for idx,cs in enumerate(cl):
@@ -240,7 +242,9 @@ def gpa():
         else:
             flash('Please check your input and only enter valid data')
     return render_template("gpa_new.html", form=form)
-
+@app.route('/view', methods=["GET", "POST"])
+def view():
+    return render_template("view.html")
 
 @app.route('/partner', methods=["GET", "POST"])
 def partner():
