@@ -245,3 +245,8 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 }
 
+#socials{
+  background-image: url(socials.png);
+  border-radius: 15px;
+  background-size: cover;
+}
