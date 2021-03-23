@@ -13,8 +13,8 @@ body {font-size:16px;}
 </style>s
 <body>
 
-<!-- Sidebar/menu find w3-red in css to change colour!!-->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<!-- Sidebar/menu find w3-blue in css to change colour!!-->
+<nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>All-in-1 School Starter Pack for NTU Students</b></h3>
@@ -30,8 +30,8 @@ body {font-size:16px;}
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+<header class="w3-container w3-top w3-hide-large w3-blue w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-blue w3-margin-right" onclick="w3_open()">☰</a>
   <span>All-in-1 School Starter Pack for NTU Students</span>
 </header>
 
@@ -66,7 +66,7 @@ body {font-size:16px;}
             {% block content %}
             <br>
             <br>
-            <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
+            <h1 class="w3-xxxlarge w3-text-blue"><b>Login</b></h1>
 
             <p>Enter your NTU username and password to login. Please register if you do not have an account.</p>
             {% if errflag %}
@@ -87,12 +87,18 @@ body {font-size:16px;}
                 {{ form.remember }}
               </div>
               <br>
-              <button class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" type="submit">Login</button>
+              <button class="w3-button w3-block w3-padding-large w3-blue w3-margin-bottom" type="submit">Login</button>
               {{ form.submit }}
               <br>
               <br>
 
             </form>
+        <p class="w3-center" >Follow us on:</p>
+        <img src="static/social.png" width="190" height="100" style="margin-left: 42%;">
+        <br>
+        <br>
+        <br>
+        <p class="w3-center" >© 2021 Pancakes</p>
             {% endblock %}
     </div>
 
@@ -103,6 +109,7 @@ body {font-size:16px;}
 </div>
 
 <!-- W3.CSS Container -->
+
 
 <script>
 // Script to open and close sidebar
