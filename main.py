@@ -130,6 +130,10 @@ def homepage():
 def homepage2():
     return render_template("home2.html")
 
+@app.route('/view', methods=["GET", "POST"])
+def view():
+    return render_template("view_saved.html")
+
 
 @app.route('/planner', methods=["GET", "POST"])
 def planner():

@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<title>CZ3002</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename= 'main.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>All-in-1 School Starter Pack for NTU Students</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="{{ url_for('homepage2') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
+    <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
+    <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
+    <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-blue w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-blue w3-margin-right" onclick="w3_open()">☰</a>
+  <span>All-in-1 School Starter Pack for NTU Students</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+<h1 class="w3-xxxlarge w3-text-blue" ><b>Saved Timetables:</b></h1>
+  <!-- Home -->
+  <div class="w3-light-grey" style="text-align: center">
+    <table>
+                <thead>
+                <tr><th style="text-align: right;">    </th><th>MON                                            </th><th>TUE                                            </th><th>WED                                            </th><th>THU                                            </th><th>FRI                                   </th></tr>
+                </thead>
+                <tbody>
+                <tr><td style="text-align: right;"><b>0830</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>10231 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>0900</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>10231 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>0930</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1000</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1030</b></td><td>10217 LAB 1|3|5|7|9|11|13|                     </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1100</b></td><td>10217 LAB 1|3|5|7|9|11|13|                     </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1130</b></td><td>10217 LAB 1|3|5|7|9|11|13|                     </td><td>                                               </td><td>                                               </td><td>10217 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1200</b></td><td>10217 LAB 1|3|5|7|9|11|13|                     </td><td>                                               </td><td>                                               </td><td>10217 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1230</b></td><td>10237 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>10231 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1300</b></td><td>10237 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>10231 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1330</b></td><td>10237 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>10231 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>10283 TUT 2|3|4|5|6|7|8|9|10|11|12|13|</td></tr>
+                <tr><td style="text-align: right;"><b>1400</b></td><td>10237 TUT 2|3|4|5|6|7|8|9|10|11|12|13|         </td><td>10231 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>10283 TUT 2|3|4|5|6|7|8|9|10|11|12|13|</td></tr>
+                <tr><td style="text-align: right;"><b>1430</b></td><td>10217 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>10217 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1500</b></td><td>10217 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                               </td><td>                                               </td><td>10217 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1530</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1600</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1630</b></td><td>                                               </td><td>                                               </td><td>10237 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>10283 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1700</b></td><td>                                               </td><td>                                               </td><td>10237 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>10283 LEC/STUDIO 1|2|3|4|5|6|7|8|9|10|11|12|13|</td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1730</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1800</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1830</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1900</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                <tr><td style="text-align: right;"><b>1930</b></td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                               </td><td>                                      </td></tr>
+                </tbody>
+                </table>
+                <h3>CZ3007:10217</h3><h3>CZ4041:10231</h3><h3>CZ4071:10237</h3><h3>MH1812:10283</h3>
+      - Timetable 2 -
+      <br>
+      <br>
+
+  </div>
+
+  <!-- Header -->
+
+
+
+<!-- End page content -->
+
+
+<!-- W3.CSS Container -->
+<br>
+<br>
+<p class="w3-center" >© 2021 Pancakes</p>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
+
+
