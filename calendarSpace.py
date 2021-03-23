@@ -111,7 +111,7 @@ class CalendarSpace:
         htmlTableAll = tabulate(htmlTable,htmlHeader,tablefmt='html') + '\n'
         db_dict= {}
         for courseIndex in self.courseIndexes:
-            htmlTableAll = htmlTableAll + f'<h1>{courseIndex.code}:{courseIndex.index}</h1>'
+            htmlTableAll = htmlTableAll + f'<h3>{courseIndex.code}:{courseIndex.index}</h3>'
             db_dict[courseIndex.code] = courseIndex.index
         htmlTableAll = htmlTableAll + "<button name='save' value=0 onclick=\"document.getElementByName('save').value=1\">Save</button>"
         return htmlTableAll, db_dict
