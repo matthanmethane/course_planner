@@ -246,6 +246,7 @@ def gpa():
     return render_template("gpa_new.html", form=form)
 
 
+
 @app.route('/partner', methods=["GET", "POST"])
 def partner():
     return render_template("partner.html")
