@@ -236,7 +236,9 @@ def gpa():
 
                 # to get the new semester gpa and new cumulative gpa
                 semestergpa = semestergrade / currentcredit
+                semestergpa = round(semestergpa, 2)
                 cumulativegpa = (Decimal(semestergrade) + currentgrade) / (int(creditearned) + currentcredit)
+                cumulativegpa = round(cumulativegpa, 2)
                 # to print the gpa
                 return render_template("gparesult_new.html", sgpa=semestergpa, cgpa=cumulativegpa)
             except:
