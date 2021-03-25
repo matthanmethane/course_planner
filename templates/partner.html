@@ -24,6 +24,7 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="{{ url_for('homepage2') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
     <a href="{{ url_for('planner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Planner</a>
+    <a href="{{ url_for('view') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">&nbsp&nbsp- View Timetable</a>
     <a href="{{ url_for('gpa') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GPA Calculator</a>
     <a href="{{ url_for('partner') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Coursemate Finder</a>
     <a href="{{ url_for('login') }}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
@@ -45,42 +46,48 @@ body {font-size:16px;}
   <!-- Home -->
 
 
+<div class="w3-container" style="margin-top:80px" id="Partner">
 
+    <h1 class="w3-xxxlarge w3-text-blue"><b>Coursemate Finder</b></h1>
+
+  </div>
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="Planner">
+  <div class="w3-light-grey" style="text-align: center">
 
-    <h1 class="w3-xxxlarge w3-text-red"><b></b></h1>
-    <h1 style="text-align: center;">
-    Choose the course to find your coursemates in!
-    </h1>
-    <h2 class="w3-opacity" style="text-align: center;">
-    <select name="course_code" id="course_code" style="text-align: center;">
-      <option value="course1">CZ3007: Compiler Techniques</option>
-      <option value="course2">CZ4041: Machine Learning</option>
-      <option value="course3">CZ4071: Network Science</option>
-      <option value="course4">MH1812: Discretly Discrete Mathematics</option>
-    </select>
-    <button>
-      Next
-    </button>
-    </h2>
-   
+        <br>
 
+        <h2 style="text-align: center;">
+        Select the course to find your coursemates!
+        </h2>
+        <h2 class="w3-opacity" style="text-align: center;">
+        <select name="course_code" id="course_code" style="text-align: center;">
+          <option value="course1">CZ3007: Compiler Techniques</option>
+          <option value="course2">CZ4041: Machine Learning</option>
+          <option value="course3">CZ4071: Network Science</option>
+          <option value="course4">MH1812: Discretely Discrete Mathematics</option>
+        </select>
+        <button>
+          Next
+        </button>
+        </h2>
+
+
+
+      <div style="text-align: center;width:50%;margin-left:30%;margin-top:5%;">
+        <p>
+          <ol>
+            <li><a href=""> dongmei001@e.ntu.edu.sg</a></li>
+            <li><a href="">lingqi004@e.ntu.edu.sg</a></li>
+            <li><a href="">jaewon002@e.ntu.edu.sg</a></li>
+            <li><a href="">jefferey004@e.ntu.edu.sg</a></li>
+            <li><a href="">matthew012@e.ntu.edu.sg</a></li>
+            <li><a href="">jaychou032@e.ntu.edu.sg</a></li>
+          </ol>
+        </p>
+        <br>
+      </div>
   </div>
-  <div style="text-align: center;width:50%;margin-left:30%;">
-    <p>
-      <ol>
-        <li> <a href=""> dongmei001@e.ntu.edu.sg</a></li>
-        <li> <a href="">lingqi004@e.ntu.edu.sg</a></li>
-        <li><a href="">jaewon002@e.ntu.edu.sg</a></li>
-        <li><a href="">jefferey004@e.ntu.edu.sg</a></li>
-        <li><a href="">matthew012@e.ntu.edu.sg</a></li>
-        <li><a href="">jaychou032@e.ntu.edu.sg</a></li>
-      </ol>
-    </p>
-  </div>
-
 
 <!-- End page content -->
 
@@ -88,6 +95,9 @@ body {font-size:16px;}
 <!-- W3.CSS Container -->
 <br>
 <br>
+<br>
+<br>
+
 <p class="w3-center" >© 2021 Pancakes</p>
 </div>
 
